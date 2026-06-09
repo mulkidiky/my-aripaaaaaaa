@@ -2,19 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 
-// Fallback royalty-free music from Incompetech (has CORS headers)
+// Fallback royalty-free music with working CORS URLs
 const TRACKS = [
   {
     id: "the-script",
     name: "Romantic Piano",
     artist: "Musik Romantis",
-    audioUrl: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Forest.mp3"
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
   },
   {
     id: "shape-of-my-heart",
     name: "Soft Ambient",
     artist: "Musik Latar",
-    audioUrl: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/In%20Your%20Dreams.mp3"
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   }
 ];
 
