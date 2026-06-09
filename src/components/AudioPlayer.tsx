@@ -2,23 +2,31 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 
-// Live public direct streaming premium music MP3 files
+// Live public direct streaming premium music MP3 files with CORS support
 const TRACKS = [
   {
     id: "the-script",
-    name: "The Man Who Can't Be Moved",
-    artist: "The Script",
-    audioUrl: "https://archive.org/download/MBLambo2/The%20Man%20Who%20Can%27t%20Be%20Moved.mp3"
+    name: "Serenade",
+    artist: "Musik Latar",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
   },
   {
     id: "shape-of-my-heart",
-    name: "Shape of My Heart",
-    artist: "Backstreet Boys",
-    audioUrl: "https://e-gizmo.net/oc/kits%20documents/MP3%20DL%202022/Backstreet%20Boys-%20Shape%20Of%20My%20Heart%20%28LIVE%29.mp3"
+    name: "Ambient Serenade",
+    artist: "Musik Romantis",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   }
 ];
 
-const getProxiedUrl = (url: string) => `/api/proxy-audio?url=${encodeURIComponent(url)}`;
+// GitHub Pages use direct CORS URLs; localhost can fall back to /api/proxy-audio
+const getProxiedUrl = (url: string) => {
+  const isLocalhost = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+  if (isLocalhost && url.startsWith("http")) {
+    return `/api/proxy-audio?url=${encodeURIComponent(url)}`;
+  }
+  // GitHub Pages: use direct CORS-enabled URL
+  return url;
+};
 
 export default function AudioPlayer() {
   const [selectedTrackId, setSelectedTrackId] = useState("the-script");
