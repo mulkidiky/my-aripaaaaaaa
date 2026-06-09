@@ -2,29 +2,29 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 
-// Live public direct streaming premium music MP3 files with CORS support
+// Fallback royalty-free music from Incompetech (has CORS headers)
 const TRACKS = [
   {
     id: "the-script",
-    name: "Serenade",
-    artist: "Musik Latar",
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    name: "Romantic Piano",
+    artist: "Musik Romantis",
+    audioUrl: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Forest.mp3"
   },
   {
     id: "shape-of-my-heart",
-    name: "Ambient Serenade",
-    artist: "Musik Romantis",
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    name: "Soft Ambient",
+    artist: "Musik Latar",
+    audioUrl: "https://incompetech.com/music/royalty-free/mp3-royaltyfree/In%20Your%20Dreams.mp3"
   }
 ];
 
-// GitHub Pages use direct CORS URLs; localhost can fall back to /api/proxy-audio
+// GitHub Pages: use direct CORS URLs; localhost can fall back to /api/proxy-audio
 const getProxiedUrl = (url: string) => {
   const isLocalhost = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
-  if (isLocalhost && url.startsWith("http")) {
+  if (isLocalhost) {
     return `/api/proxy-audio?url=${encodeURIComponent(url)}`;
   }
-  // GitHub Pages: use direct CORS-enabled URL
+  // GitHub Pages: use direct CORS-enabled URL with crossOrigin attribute
   return url;
 };
 
@@ -104,6 +104,7 @@ export default function AudioPlayer() {
         src={getProxiedUrl(activeTrack.audioUrl)}
         loop
         preload="auto"
+        crossOrigin="anonymous"
         onCanPlay={() => setIsLoading(false)}
         onWaiting={() => setIsLoading(true)}
         onPlaying={() => {
