@@ -305,8 +305,8 @@ async function startServer() {
         return res.status(400).json({ error: "Isi draf atau ide surat harus ada meow!" });
       }
 
-      const cleanSender = sender || "Tuan Kucing";
-      const cleanRecipient = recipient || "Puan Kucing";
+      const cleanSender = sender || "Arifaa";
+      const cleanRecipient = recipient || "Putri Sabilaah";
 
       if (!ai) {
         // Fallback generator

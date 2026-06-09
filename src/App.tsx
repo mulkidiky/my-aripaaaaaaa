@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { MemoryPhoto, SecretMessage, AffectionLetter } from "./types";
-import AudioPlayer from "./components/AudioPlayer";
 import Gallery from "./components/Gallery";
 import SecretMessages from "./components/SecretMessages";
 import Letters from "./components/Letters";
@@ -15,8 +14,8 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState("");
 
   // Couple names stored in localStorage
-  const [yourName, setYourName] = useState(() => localStorage.getItem("meow_your_name") || "Tuan Kucing");
-  const [partnerName, setPartnerName] = useState(() => localStorage.getItem("meow_partner_name") || "Puan Kucing");
+  const [yourName, setYourName] = useState(() => localStorage.getItem("meow_your_name") || "Arifaa");
+  const [partnerName, setPartnerName] = useState(() => localStorage.getItem("meow_partner_name") || "Putri Sabilaah");
   const [showSettings, setShowSettings] = useState(false);
 
   // Active viewing Tab: 'gallery' | 'secrets' | 'letters'
@@ -251,11 +250,6 @@ export default function App() {
           </AnimatePresence>
 
         </header>
-
-        {/* Ambient background soundtrack section */}
-        <section id="audio-panel-section">
-          <AudioPlayer />
-        </section>
 
         {/* Core Sections Toggle TABS */}
         <nav id="view-selector-tabs" className="flex items-center justify-center p-1 bg-white/75 backdrop-blur shadow-sm border border-rose-100 max-w-md mx-auto rounded-2xl mb-8 relative z-10">

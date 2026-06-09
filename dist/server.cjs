@@ -306,8 +306,8 @@ async function startServer() {
       if (!body) {
         return res.status(400).json({ error: "Isi draf atau ide surat harus ada meow!" });
       }
-      const cleanSender = sender || "Tuan Kucing";
-      const cleanRecipient = recipient || "Puan Kucing";
+      const cleanSender = sender || "Arifaa";
+      const cleanRecipient = recipient || "Putri Sabilaah";
       if (!ai) {
         const fallbackText = makeFallbackCatLetter(body, cleanSender, cleanRecipient);
         return res.json({ text: fallbackText, isFallback: true });

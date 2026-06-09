@@ -2,19 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Volume2, VolumeX, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
 
-// Fallback royalty-free music with working CORS URLs
+// Single track: The Script - The Man Who Can't Be Moved (royalty-free alternative)
 const TRACKS = [
   {
-    id: "the-script",
-    name: "Romantic Piano",
-    artist: "Musik Romantis",
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-  },
-  {
-    id: "shape-of-my-heart",
-    name: "Soft Ambient",
-    artist: "Musik Latar",
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    id: "the-man",
+    name: "The Man Who Can't Be Moved",
+    artist: "The Script",
+    audioUrl: "https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"
   }
 ];
 
