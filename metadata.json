@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Galeri \u0026 Surat Kucing Romantis",
+  "description": "Website kenangan romantis bersama pasangan bertema kucing lucu dengan galeri foto, pesan cinta tersembunyi, musik latar, dan halaman surat kasih sayang.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
